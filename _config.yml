@@ -1,0 +1,10 @@
+name: Bell's Blog
+description: ""
+
+url: "http://mbell697.github.com"
+
+paginate: 10
+
+markdown: redcarpet
+permalink: pretty
+pygments: true

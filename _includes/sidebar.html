@@ -1,0 +1,19 @@
+<div class="sidebar-toggle">
+	<i class="fa fa-bars fa-2x"></i>
+</div>
+<a class="sidebar-close close" href="#">&times;</a>
+<div class="logo text-center">
+	<i class="fa fa-dot-circle-o fa-5x logo"></i>
+</div>
+<p class="text-center">code &sdot; startups &sdot; stuff</p>
+<hr/>
+<h4>Recent Posts</h4>
+<ul class="list-unstyled">
+  {% for post in site.posts limit: 10 %}
+    <li><a href="{{ post.url }}">{{ post.title }}</small></a></li>
+  {% endfor %}
+</ul>
+<hr/>
+<p>contact stuff</p>
+
+

@@ -64,13 +64,19 @@
   .social-links a {
     font-size: 25px;
   }
+
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: auto;
+  }
 }
 
 .sidebar a {
   color: white;
 }
-
-
 
 .logo {
   color: rgba(255, 255, 255, 0.34);

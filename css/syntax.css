@@ -72,30 +72,8 @@
  ********
 */
 
-.highlighttable {
-	width:100%;
-	font-size: 12px;
-}
-.linenodiv pre { 
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 0px; 
-	border-right: 1px solid #686868;
-	border-color: #ccc;
-	color: #c4c4c4;
-}
-
-.linenos, .code {
-	padding: 0;
-}
-
-.linenos {
-	width: 45px;
-}
-
-.highlighttable .highlight pre { 
-	border-top-left-radius: 0px;
-	border-bottom-left-radius: 0px;
-	border-left: 0px; 
+.lineno {
+	color: #A5A5A5;
 }
 
 

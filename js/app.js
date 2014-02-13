@@ -38,43 +38,46 @@ function sidebarHoverExit() {
 var sidebarOpen = true;
 var sidebarUserOpenned = false;
 
-$('.sidebar-toggle').click(function() {
-	if(sidebarOpen) {
+if (window.matchMedia( "(min-width: 992px)" )) {
+	$('.sidebar-toggle').click(function() {
+		if(sidebarOpen) {
+			sidebarHide();
+			sidebarUserOpenned = false;
+		} else {
+			sidebarShow();
+			$('.sidebar-close').show();
+			sidebarUserOpenned = true;
+		}
+	});
+
+	$('.sidebar-toggle').hover(function() {
+		sidebarHoverEnter();
+	}, function() {
+		sidebarHoverExit();
+	});
+
+	$('.sidebar-close').click(function(event) {
 		sidebarHide();
 		sidebarUserOpenned = false;
-	} else {
-		sidebarShow();
-		$('.sidebar-close').show();
-		sidebarUserOpenned = true;
-	}
-});
+		event.preventDefault();
+	});
 
-$('.sidebar-toggle').hover(function() {
-	sidebarHoverEnter();
-}, function() {
-	sidebarHoverExit();
-});
-
-$('.sidebar-close').click(function(event) {
-	sidebarHide();
-	sidebarUserOpenned = false;
-	event.preventDefault();
-});
-
-$(window).scroll(function() {
-	if ($(window).scrollTop() < 50) {
-		if (!sidebarOpen) {
-			sidebarShow();
+	$(window).scroll(function() {
+		if ($(window).scrollTop() < 50) {
+			if (!sidebarOpen) {
+				sidebarShow();
+			} else {
+				$('.sidebar-close').hide();
+				sidebarUserOpenned = false;
+			}
 		} else {
-			$('.sidebar-close').hide();
-			sidebarUserOpenned = false;
+			if (sidebarOpen && !sidebarUserOpenned) {
+				sidebarHide();
+			}
 		}
-	} else {
-		if (sidebarOpen && !sidebarUserOpenned) {
-			sidebarHide();
-		}
-	}
-});
+	});
+}
+
 
 
 

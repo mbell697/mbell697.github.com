@@ -10,6 +10,20 @@
   color: white;
   right: 0;
   padding: 15px;
+  float: right;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    position: relative;
+    width: auto;
+    height: auto;
+    right: auto;
+    float: none;
+    margin-right: -15px;
+    margin-left: -15px;
+    border: none;
+  }
 }
 
 .sidebar a {
@@ -67,6 +81,7 @@ p {
 }
 
 .social-links {
+  margin-top:25px;
   text-align: center;
   width: 100%; 
 }
@@ -80,4 +95,5 @@ p {
   color: #fff;
 }
 
+pre { white-space: pre-wrap; }
 

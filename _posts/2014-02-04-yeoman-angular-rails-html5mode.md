@@ -18,7 +18,7 @@ $ npm install connect-modrewrite --save
 
 Then in your Gruntfile, add the modrewrite middleware. You may or may not have a middleware section already, I've included a snipit that has the full middleware function in case you don't have one. It also includes a proxy for api calls to the rails server. The modrewrite bit is line 19.
 
-{% highlight javascript linenos=table %}
+{% highlight javascript linenos %}
 livereload: {
   options: {
     open: true,

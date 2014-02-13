@@ -38,7 +38,7 @@ function sidebarHoverExit() {
 var sidebarOpen = true;
 var sidebarUserOpenned = false;
 
-if (window.matchMedia( "(min-width: 992px)" )) {
+if (window.matchMedia( "(min-width: 992px)" ).matches) {
 	$('.sidebar-toggle').click(function() {
 		if(sidebarOpen) {
 			sidebarHide();

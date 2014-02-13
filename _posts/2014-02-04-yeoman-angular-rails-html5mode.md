@@ -10,7 +10,7 @@ When using Angular's HTML5 location mode you need to find a way to serve `index.
 
 There are a few things to deal with here, the first is adding the rewriting.
 
-I'm using `connect-modrewrite`(https://github.com/tinganho/connect-modrewrite) for the url rewriting, lets install it first, in your angular app's directory:
+I'm using [connect-modrewrite](https://github.com/tinganho/connect-modrewrite) for the url rewriting, lets install it first, in your angular app's directory:
 
 {% highlight bash %}
 $ npm install connect-modrewrite --save
@@ -120,7 +120,7 @@ Finally, you need to add leading slashes to the `es5-shim.js` and `json3.min.js`
 
 This assumes your using yeoman to build your files into the rails public directory such that rails is serving them. I take this approach for simple deployment of the full app to Heroku, you can setup a CDN in front of these assets for production use.
 
-Since you can't do url rewriting in front of the rails app with heroku, your stuck doing it somewhere in the rails stack. I'm using `rake-rewrite`(https://github.com/jtrupiano/rack-rewrite) for this.
+Since you can't do url rewriting in front of the rails app with heroku, your stuck doing it somewhere in the rails stack. I'm using [rake-rewrite](https://github.com/jtrupiano/rack-rewrite) for this.
 
 Add `gem 'rake-rewrite'` to your Gemfile and `bundle install`.
 

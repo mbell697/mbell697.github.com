@@ -35,48 +35,69 @@ function sidebarHoverExit() {
 	});	
 }
 
+var sidebarToggleClick = function() {
+	if(sidebarOpen) {
+		sidebarHide();
+		sidebarUserOpenned = false;
+	} else {
+		sidebarShow();
+		$('.sidebar-close').show();
+		sidebarUserOpenned = true;
+	}
+};
+
+var sidebarCloseClick = function() {
+	sidebarHide();
+	sidebarUserOpenned = false;
+	event.preventDefault();
+};
+
+var sidebarScroll = function() {
+	if ($(window).scrollTop() < 50) {
+		if (!sidebarOpen) {
+			sidebarShow();
+		} else {
+			$('.sidebar-close').hide();
+			sidebarUserOpenned = false;
+		}
+	} else {
+		if (sidebarOpen && !sidebarUserOpenned) {
+			sidebarHide();
+		}
+	}
+};
+
 var sidebarOpen = true;
 var sidebarUserOpenned = false;
 
-if (window.matchMedia( "(min-width: 992px)" ).matches) {
-	$('.sidebar-toggle').click(function() {
-		if(sidebarOpen) {
-			sidebarHide();
-			sidebarUserOpenned = false;
-		} else {
-			sidebarShow();
-			$('.sidebar-close').show();
-			sidebarUserOpenned = true;
-		}
-	});
+var widthMatcher = window.matchMedia( "(min-width: 992px)" );
 
-	$('.sidebar-toggle').hover(function() {
-		sidebarHoverEnter();
-	}, function() {
-		sidebarHoverExit();
-	});
-
-	$('.sidebar-close').click(function(event) {
-		sidebarHide();
-		sidebarUserOpenned = false;
-		event.preventDefault();
-	});
-
-	$(window).scroll(function() {
-		if ($(window).scrollTop() < 50) {
-			if (!sidebarOpen) {
-				sidebarShow();
-			} else {
-				$('.sidebar-close').hide();
-				sidebarUserOpenned = false;
-			}
-		} else {
-			if (sidebarOpen && !sidebarUserOpenned) {
-				sidebarHide();
-			}
-		}
-	});
+if (widthMatcher.matches) {
+	$('.sidebar-toggle').on('click', sidebarToggleClick);
+	$('.sidebar-toggle').on('mouseenter', sidebarHoverEnter);
+	$('.sidebar-toggle').on('mouseleave', sidebarHoverExit);
+	$('.sidebar-close').on('click', sidebarCloseClick);
+	$(window).on('scroll', sidebarScroll);
 }
+
+widthMatcher.addListener(function(matcher) {
+	if (matcher.matches) {
+		$('.sidebar-toggle').on('click', sidebarToggleClick);
+		$('.sidebar-toggle').on('mouseenter', sidebarHoverEnter);
+		$('.sidebar-toggle').on('mouseleave', sidebarHoverExit);
+		$('.sidebar-close').on('click', sidebarCloseClick);
+		$(window).on('scroll', sidebarScroll);
+	} else {
+		if (!sidebarOpen) {
+			sidebarShow();
+		}
+		$('.sidebar-toggle').off('click', sidebarToggleClick);
+		$('.sidebar-toggle').off('mouseenter', sidebarHoverEnter);
+		$('.sidebar-toggle').off('mouseleave', sidebarHoverExit);
+		$('.sidebar-close').off('click', sidebarCloseClick);
+		$(window).off('scroll', sidebarScroll);
+	}
+});
 
 
 

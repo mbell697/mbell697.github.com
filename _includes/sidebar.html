@@ -7,13 +7,25 @@
 </div>
 <p class="text-center">code &sdot; startups &sdot; stuff</p>
 <hr/>
-<h4>Recent Posts</h4>
+<h4>recent posts</h4>
 <ul class="list-unstyled">
   {% for post in site.posts limit: 10 %}
     <li><a href="{{ post.url }}">{{ post.title }}</small></a></li>
   {% endfor %}
 </ul>
 <hr/>
-<p>contact stuff</p>
+<div class="social-links">
+	<ul class="list-unstyled list-inline">
+		<li>
+			<a href="https://github.com/mbell697"><i class="fa fa-github"></i></a>
+		</li>
+		<li>
+			<a href="https://twitter.com/mbell697"><i class="fa fa-twitter"></i></a>
+		</li>
+		<li>
+			<a href="http://stackexchange.com/users/39485/mark"><i class="fa fa-stack-exchange"></i></a>
+		</li>
+	</ul>
+</div>
 
 
